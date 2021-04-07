@@ -1,0 +1,8 @@
+ext  {
+
+    isRelease = false
+
+    app_android = [
+            compileSdkVersion : 28
+    ]
+}
