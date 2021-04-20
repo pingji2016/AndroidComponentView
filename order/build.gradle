@@ -33,6 +33,21 @@ android {
         }
     }
 
+    //动态选择何种manifest.集成还是组件化
+    sourceSets{
+        main{
+            if (isRelease){
+                manifest.srcFile "src/main/AndroidManifest.xml"
+                //发布模式排除
+                java {
+                    exclude '**/debug/**'
+                }
+            }else{
+                manifest.srcFile "src/main/debug/AndroidManifest.xml"
+            }
+        }
+    }
+
 }
 
 dependencies {

@@ -23,4 +23,10 @@ public class MainActivity extends AppCompatActivity {
     public void toPersonalModule(View view) {
         startActivity(new Intent(this, PersonalMainActivity.class));
     }
+
+    public void toGlideTestAct(View view) {
+        Intent intent = new Intent(this,GlideTest.class);
+        startActivity(intent);
+    }
+
 }
