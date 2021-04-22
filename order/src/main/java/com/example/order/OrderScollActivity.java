@@ -3,6 +3,9 @@ package com.example.order;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.widget.ListView;
 
@@ -16,6 +19,8 @@ public class OrderScollActivity extends Activity {
     private List<Fruit> fruitList = new ArrayList<>();
 
     private Toolbar toolbar;
+
+    private RecyclerView recyclerView;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,10 +29,18 @@ public class OrderScollActivity extends Activity {
         toolbar = (Toolbar) findViewById(R.id.toolbar_order_scoll);
         toolbar.setTitle("订单界面");
 
-        listView = findViewById(R.id.content_orderlist);
         initFruits();
+        listView = findViewById(R.id.content_orderlist);
         FruitAdapter arrayAdapter = new FruitAdapter(OrderScollActivity.this,R.layout.order_list_item,fruitList);
         listView.setAdapter(arrayAdapter);
+
+        recyclerView = findViewById(R.id.content_orderlist_scoll);
+//        StaggeredGridLayoutManager layoutManager = new
+//                StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        OrderReAdapter adp = new OrderReAdapter(fruitList);
+        recyclerView.setAdapter(adp);
     }
 
     private void initFruits(){
