@@ -1,11 +1,14 @@
 package com.example.order;
 
+import android.content.Intent;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -40,6 +43,14 @@ public class OrderMainActivity extends AppCompatActivity {
                 .into(imgview);
 
         content_text.setText(gennerateString(566));
+
+        FloatingActionButton floatingActionButton = (FloatingActionButton) findViewById(R.id.floatbutton);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(OrderMainActivity.this, OrderScollActivity.class));
+            }
+        });
     }
 
     private String gennerateString(int num){

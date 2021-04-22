@@ -5,6 +5,8 @@
     <application>
         <activity android:name=".OrderMainActivity">
         </activity>
-    </application>
 
+        <activity android:name=".OrderScollActivity">
+        </activity>
+    </application>
 </manifest>
