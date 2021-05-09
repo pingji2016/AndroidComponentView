@@ -9,6 +9,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.common.Message.MessageBase;
+
+import org.greenrobot.eventbus.EventBus;
 
 public class GlideTest extends Activity {
     private Button button;
@@ -24,6 +27,8 @@ public class GlideTest extends Activity {
         button3 = findViewById(R.id.bt_glide_transfromation);
         imageView = findViewById(R.id.img_view);
         button.setOnClickListener(new GlideTest.onClickListener());
+        button2.setOnClickListener(new GlideTest.onClickListener());
+        button3.setOnClickListener(new GlideTest.onClickListener());
     }
 
     class onClickListener implements View.OnClickListener{
@@ -40,10 +45,7 @@ public class GlideTest extends Activity {
                         .into(imageView);
 
             }else if(view.equals(button3)){
-                Glide.with(GlideTest.this)
-                        .load("http://inthecheesefactory.com/uploads/source/nestedfragment/fragments.png")
-                        .into(imageView);
-
+                EventBus.getDefault().post(new MessageBase("我只有感叹号"));
             }
 
         }

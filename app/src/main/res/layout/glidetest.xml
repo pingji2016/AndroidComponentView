@@ -17,7 +17,7 @@
         android:layout_height="wrap_content" />
 
     <Button
-        android:text="图片变换"
+        android:text="EventBus发送"
         android:id="@+id/bt_glide_transfromation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
